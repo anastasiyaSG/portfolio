@@ -1,0 +1,58 @@
+name: k6 Performance Tests
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # nightly at 03:00 UTC
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  k6-tests:
+    runs-on: ubuntu-latest
+    env:
+      K6_TARGET_URL: https://test.k6.io # swap for your own demo API later
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Run k6 load test
+        uses: grafana/k6-action@v0.3.1
+        continue-on-error: true
+        with:
+          filename: k6/load-test.js
+          flags: --summary-export=load-summary.json
+
+      - name: Run k6 stress test
+        uses: grafana/k6-action@v0.3.1
+        continue-on-error: true # this test is meant to push past thresholds
+        with:
+          filename: k6/stress-test.js
+          flags: --summary-export=stress-summary.json
+
+      - name: Run k6 soak test
+        uses: grafana/k6-action@v0.3.1
+        continue-on-error: true
+        with:
+          filename: k6/soak-test.js
+          flags: --summary-export=soak-summary.json
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Parse results into history
+        run: node scripts/parse-k6-summary.mjs
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/k6-history.json
+          git diff --cached --quiet || git commit -m "chore: record k6 run results"
+          git push

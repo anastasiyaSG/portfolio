@@ -1,4 +1,5 @@
 import StatusLine from './StatusLine'
+import K6Dashboard from './K6Dashboard'
 
 export default function Projects() {
   return (
@@ -54,11 +55,11 @@ export default function Projects() {
               <span className="text-[var(--color-signal-pass)]">✓ Yes</span>
             </div>
           </div>
-          <p className="mt-4 text-[var(--color-slate)] italic">
-            An interactive walkthrough of the actual load-test methodology
-            and metrics is coming to this section next.
-          </p>
         </div>
+      </div>
+
+      <div className="mb-20">
+        <K6Dashboard />
       </div>
 
       <StatusLine status="REPO" label="Personal projects" />
