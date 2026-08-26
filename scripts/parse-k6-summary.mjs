@@ -14,14 +14,20 @@ const MAX_RUNS = 30
 
 function extractMetrics(summary) {
   const m = summary.metrics || {}
-  const duration = m.http_req_duration?.values || {}
-  const failed = m.http_req_failed?.values || {}
-  const reqs = m.http_reqs?.values || {}
+  // NOTE: k6's --summary-export format puts stats directly on the metric
+  // object (e.g. m.http_req_duration['p(95)']) — there is no `.values`
+  // wrapper. That wrapper only exists on the separate in-memory object
+  // passed to a custom handleSummary() callback, not in this file.
+  const duration = m.http_req_duration || {}
+  const failed = m.http_req_failed || {}
+  const reqs = m.http_reqs || {}
 
   const thresholdsPassed = Object.values(m).every(
     (metric) =>
       !metric.thresholds ||
-      Object.values(metric.thresholds).every((t) => t.ok !== false)
+      Object.values(metric.thresholds).every(
+        (t) => t === true || t?.ok !== false
+      )
   )
 
   return {
