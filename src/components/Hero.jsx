@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
 const assertions = [
-  'root cause isolated before production',
-  'capacity verified pre–Black Friday',
-  '3,000+ applications/day, zero incidents',
+  'risk identified before production',
+  'automation frameworks built for cross-team adoption',
+  'CI/CD quality gates strengthened',
   'QA maturity assessed across 13 agile teams',
 ]
 
@@ -20,15 +20,11 @@ export default function Hero() {
     <section className="min-h-[90vh] flex flex-col justify-center px-6 md:px-16 max-w-6xl mx-auto">
       <StatusEyebrow />
       <h1 className="font-[var(--font-display)] font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-4xl">
-        Quality engineering,
-        <br />
-        not incident response.
+        QA Engineer / SDET
       </h1>
       <p className="mt-6 font-[var(--font-body)] text-lg md:text-xl text-[var(--color-slate)] max-w-2xl leading-relaxed">
-        I build the automation, standards, and performance testing that let
-        organizations ship with confidence — combining hands-on framework
-        engineering with the product judgment to know what quality actually
-        means for the customer.
+        Building automation frameworks, strengthening CI/CD quality gates, and
+        identifying risk before it becomes a defect.
       </p>
 
       <div className="mt-12 border border-[var(--color-line)] bg-white/40 rounded-lg p-5 max-w-xl font-[var(--font-mono)] text-sm">
@@ -66,7 +62,7 @@ export default function Hero() {
 function StatusEyebrow() {
   return (
     <div className="font-[var(--font-mono)] text-xs tracking-widest text-[var(--color-slate)] mb-6 uppercase">
-      Senior QA Automation Engineer / QA Lead — Sofia, Bulgaria
+      QA Engineer / SDET — Sofia, Bulgaria
     </div>
   )
 }
