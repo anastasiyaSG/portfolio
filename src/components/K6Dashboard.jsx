@@ -32,12 +32,20 @@ export default function K6Dashboard() {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/k6-history.json`)
+    const historyUrl = `${import.meta.env.BASE_URL}data/k6-history.json?ts=${Date.now()}`
+
+    fetch(historyUrl, { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error('failed to load')
         return res.json()
       })
-      .then(setHistory)
+      .then((entries) =>
+        setHistory(
+          entries.sort(
+            (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
+          )
+        )
+      )
       .catch(() => setError(true))
   }, [])
 
