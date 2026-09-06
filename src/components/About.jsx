@@ -12,21 +12,23 @@ export default function About() {
         </h2>
         <div className="space-y-5 text-lg leading-relaxed text-[var(--color-ink)]/90">
           <p>
-            Over 12+ years I've moved from hands-on manual testing to leading
-            QA strategy across banking systems and 13 agile teams, building
-            automation frameworks from scratch, and mentoring the next
-            generation of QA engineers.
+            QA is the bridge between business and development. The most valuable
+            QA contribution is not only catching defects after development — it is
+            identifying ambiguity, missing requirements, business risks, edge
+            cases, and potential failures as early as possible in the SDLC.
           </p>
           <p>
-            I believe the best quality engineers aren't remembered for finding
-            bugs — they're remembered for the incidents that never happened.
-            My job is to find the failure mode before the business ever meets
-            it: not chasing flaky failures after release, but understanding
-            the product deeply enough to know which risks actually matter.
+            The strongest QA outcome is finding issues during refinement, before
+            development even starts. The earlier a risk is identified, the cheaper
+            and more valuable the correction. In practice, this means combining
+            business understanding, risk-based thinking, technical QA, automation,
+            service and API testing, CI/CD, and early defect prevention.
           </p>
           <p>
-            I use AI — Copilot, and increasingly agentic tools — not to
-            replace that judgment, but to move faster with it.
+            Over the past years I have worked across banking systems and 13 agile
+            teams to build quality into delivery before it becomes a production
+            issue. Approximately 120 non-escaped defects were identified over a
+            six-month period before reaching production or customers.
           </p>
         </div>
       </div>
