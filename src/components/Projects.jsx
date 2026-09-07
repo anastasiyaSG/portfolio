@@ -1,7 +1,26 @@
+import { useState } from 'react'
 import StatusLine from './StatusLine'
 import K6Dashboard from './K6Dashboard'
+import DetailsDialog from './DetailsDialog'
+
+const personalProjects = [
+  {
+    title: 'Evolved CV Builder',
+    desc: "An interactive, single-page CV builder with editable, reorderable sections — identity, experience, skills, certifications. Edits persist to localStorage and export straight to PDF via the browser's print dialog. This is the tool that produced the source content for this site.",
+    tags: ['React', 'TypeScript', 'Vite'],
+    link: 'https://github.com/anastasiyaSG/evolved_cv_builder',
+  },
+  {
+    title: 'car-watcher',
+    desc: 'A scraper that checks for new Kia and Nissan listings in Bulgaria and emails alerts, running on a schedule via GitHub Actions.',
+    tags: ['Python', 'GitHub Actions', 'Automation'],
+    link: 'https://github.com/anastasiyaSG/car-watcher',
+  },
+]
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null)
+
   return (
     <section id="projects" className="px-6 md:px-16 max-w-6xl mx-auto py-24 border-t border-[var(--color-line)]">
       <StatusLine status="CASE STUDY" label="Featured" />
@@ -135,41 +154,49 @@ export default function Projects() {
 
       <StatusLine status="REPO" label="Personal projects" />
       <div className="grid md:grid-cols-2 gap-6">
-        <ProjectCard
-          title="Evolved CV Builder"
-          desc="An interactive, single-page CV builder with editable, reorderable sections — identity, experience, skills, certifications. Edits persist to localStorage and export straight to PDF via the browser's print dialog. This is the tool that produced the source content for this site."
-          tags={['React', 'TypeScript', 'Vite']}
-          link="https://github.com/anastasiyaSG/evolved_cv_builder"
-        />
-        <ProjectCard
-          title="car-watcher"
-          desc="A scraper that checks for new Kia and Nissan listings in Bulgaria and emails alerts, running on a schedule via GitHub Actions."
-          tags={['Python', 'GitHub Actions', 'Automation']}
-          link="https://github.com/anastasiyaSG/car-watcher"
-        />
-      </div>
-    </section>
-  )
-}
-
-function ProjectCard({ title, desc, tags, link }) {
-  const Wrapper = link ? 'a' : 'div'
-  return (
-    <Wrapper
-      href={link}
-      target={link ? '_blank' : undefined}
-      rel={link ? 'noreferrer' : undefined}
-      className="block border border-[var(--color-line)] rounded-lg p-6 bg-white/40 hover:border-[var(--color-signal-pass)] transition"
-    >
-      <h3 className="font-[var(--font-display)] text-lg mb-2">{title}</h3>
-      <p className="text-[var(--color-ink)]/80 leading-relaxed mb-4">{desc}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((t) => (
-          <span key={t} className="font-[var(--font-mono)] text-xs text-[var(--color-slate)] border border-[var(--color-line)] rounded-full px-2 py-1">
-            {t}
-          </span>
+        {personalProjects.map((project) => (
+          <button
+            key={project.title}
+            type="button"
+            onClick={() => setSelectedProject(project)}
+            className="block border border-[var(--color-line)] rounded-lg p-6 bg-white/40 text-left hover:border-[var(--color-signal-pass)] transition"
+          >
+            <span className="font-[var(--font-display)] text-lg">{project.title}</span>
+            <span className="mt-2 block font-[var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-slate)]">
+              View project details →
+            </span>
+          </button>
         ))}
       </div>
-    </Wrapper>
+      <DetailsDialog
+        open={Boolean(selectedProject)}
+        onClose={() => setSelectedProject(null)}
+        eyebrow="Personal project"
+        title={selectedProject?.title ?? ''}
+      >
+        {selectedProject && (
+          <div>
+            <p className="text-lg leading-relaxed text-[var(--color-ink)]/80 mb-6">
+              {selectedProject.desc}
+            </p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {selectedProject.tags.map((tag) => (
+                <span key={tag} className="font-[var(--font-mono)] text-xs text-[var(--color-slate)] border border-[var(--color-line)] rounded-full px-2 py-1">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <a
+              href={selectedProject.link}
+              target="_blank"
+              rel="noreferrer"
+              className="font-[var(--font-mono)] text-sm text-[var(--color-signal-pass)] hover:underline"
+            >
+              Open project on GitHub →
+            </a>
+          </div>
+        )}
+      </DetailsDialog>
+    </section>
   )
 }

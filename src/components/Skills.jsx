@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import StatusLine from './StatusLine'
+import DetailsDialog from './DetailsDialog'
 
 const groups = [
   {
@@ -16,6 +18,8 @@ const groups = [
 ]
 
 export default function Skills() {
+  const [detailsOpen, setDetailsOpen] = useState(false)
+
   return (
     <section id="skills" className="px-6 md:px-16 max-w-6xl mx-auto py-24 border-t border-[var(--color-line)]">
       <StatusLine status="INVENTORY" label="Skills" />
@@ -28,7 +32,7 @@ export default function Skills() {
               {g.title}
             </h3>
             <div className="flex flex-wrap gap-2">
-              {g.items.map((item) => (
+              {g.items.slice(0, 4).map((item) => (
                 <span
                   key={item}
                   className="px-3 py-1.5 border border-[var(--color-line)] rounded-full text-sm bg-white/40"
@@ -40,6 +44,39 @@ export default function Skills() {
           </div>
         ))}
       </div>
+      <button
+        type="button"
+        onClick={() => setDetailsOpen(true)}
+        className="mt-10 font-[var(--font-mono)] text-sm text-[var(--color-signal-pass)] hover:underline"
+      >
+        View complete toolset →
+      </button>
+      <DetailsDialog
+        open={detailsOpen}
+        onClose={() => setDetailsOpen(false)}
+        eyebrow="Inventory"
+        title="Complete toolset"
+      >
+        <div className="grid md:grid-cols-3 gap-8">
+          {groups.map((g) => (
+            <div key={g.title}>
+              <h3 className="font-[var(--font-mono)] text-sm tracking-widest uppercase text-[var(--color-slate)] mb-4">
+                {g.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {g.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 border border-[var(--color-line)] rounded-full text-sm bg-white/40"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </DetailsDialog>
     </section>
   )
 }

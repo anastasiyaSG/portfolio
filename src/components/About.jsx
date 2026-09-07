@@ -1,6 +1,10 @@
+import { useState } from 'react'
 import StatusLine from './StatusLine'
+import DetailsDialog from './DetailsDialog'
 
 export default function About() {
+  const [detailsOpen, setDetailsOpen] = useState(false)
+
   return (
     <section id="about" className="px-6 md:px-16 max-w-6xl mx-auto py-24 border-t border-[var(--color-line)]">
       <StatusLine status="VERIFIED" label="Philosophy" />
@@ -10,6 +14,26 @@ export default function About() {
           <br />
           It's a discipline.
         </h2>
+        <div className="space-y-5 text-lg leading-relaxed text-[var(--color-ink)]/90">
+          <p>
+            QA is the bridge between business and development: identifying risk,
+            ambiguity, and missing requirements early enough to prevent defects.
+          </p>
+          <button
+            type="button"
+            onClick={() => setDetailsOpen(true)}
+            className="font-[var(--font-mono)] text-sm text-[var(--color-signal-pass)] hover:underline"
+          >
+            View QA philosophy and outcomes →
+          </button>
+        </div>
+      </div>
+      <DetailsDialog
+        open={detailsOpen}
+        onClose={() => setDetailsOpen(false)}
+        eyebrow="Philosophy"
+        title="Quality work starts before testing"
+      >
         <div className="space-y-5 text-lg leading-relaxed text-[var(--color-ink)]/90">
           <p>
             QA is the bridge between business and development. The most valuable
@@ -31,7 +55,7 @@ export default function About() {
             six-month period before reaching production or customers.
           </p>
         </div>
-      </div>
+      </DetailsDialog>
     </section>
   )
 }

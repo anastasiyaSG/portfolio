@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import StatusLine from './StatusLine'
+import DetailsDialog from './DetailsDialog'
 
 const roles = [
   {
@@ -42,12 +44,14 @@ const roles = [
 ]
 
 export default function Experience() {
+  const [detailsOpen, setDetailsOpen] = useState(false)
+
   return (
     <section id="experience" className="px-6 md:px-16 max-w-6xl mx-auto py-24 border-t border-[var(--color-line)]">
       <StatusLine status="LOG" label="Experience" />
       <h2 className="font-[var(--font-display)] text-3xl md:text-4xl mb-12">Career log</h2>
 
-      <div className="space-y-16">
+      <div className="space-y-8">
         {roles.map((r) => (
           <div key={r.title} className="grid md:grid-cols-[220px_1fr] gap-4 md:gap-10">
             <div>
@@ -59,6 +63,28 @@ export default function Experience() {
             <div>
               <h3 className="font-[var(--font-display)] text-xl md:text-2xl">{r.title}</h3>
               <div className="text-[var(--color-slate)] mb-4">{r.org}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={() => setDetailsOpen(true)}
+        className="mt-10 font-[var(--font-mono)] text-sm text-[var(--color-signal-pass)] hover:underline"
+      >
+        View experience details →
+      </button>
+      <DetailsDialog
+        open={detailsOpen}
+        onClose={() => setDetailsOpen(false)}
+        eyebrow="Experience"
+        title="Career log details"
+      >
+        <div className="space-y-10">
+          {roles.map((r) => (
+            <div key={r.title}>
+              <h3 className="font-[var(--font-display)] text-xl md:text-2xl">{r.title}</h3>
+              <div className="text-[var(--color-slate)] mb-4">{r.org} · {r.period}</div>
               <ul className="space-y-2">
                 {r.bullets.map((b) => (
                   <li key={b} className="flex gap-3 leading-relaxed">
@@ -68,9 +94,9 @@ export default function Experience() {
                 ))}
               </ul>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </DetailsDialog>
     </section>
   )
 }
