@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import StatusLine from './StatusLine'
+import PlaywrightDashboard from './PlaywrightDashboard'
 import K6Dashboard from './K6Dashboard'
 import DetailsDialog from './DetailsDialog'
 
@@ -23,6 +24,10 @@ export default function Projects() {
 
   return (
     <section id="projects" className="px-6 md:px-16 max-w-6xl mx-auto py-24 border-t border-[var(--color-line)]">
+      <div className="mb-20">
+        <PlaywrightDashboard />
+      </div>
+
       <StatusLine status="CASE STUDY" label="Featured" />
       <h2 className="font-[var(--font-display)] text-3xl md:text-4xl mb-12">
         Black Friday: capacity testing that prevented an incident
