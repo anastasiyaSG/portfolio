@@ -2,15 +2,15 @@
 
 Quality Engineering portfolio site. Built with React + Vite + Tailwind CSS v4.
 
-## Status: Phase 0 / Phase 1 complete
+## Status: Final version
 
 - [x] Repo scaffolded (Vite + React + Tailwind v4)
 - [x] Design tokens (color, type, layout) — see `src/index.css`
 - [x] Hero, About, Experience, Skills, Projects, Contact — real content in place
 - [x] GitHub Actions deploy workflow to GitHub Pages
-- [ ] Phase 2: Playwright test-run visualization demo
-- [ ] Phase 3: k6 load-test results demo (Black Friday case study)
-- [ ] Phase 4: SEO/OG tags, PDF export tie-in, final QA pass
+- [x] Phase 2: Playwright test-run visualization demo
+- [x] Phase 3: k6 load-test results demo (Black Friday case study)
+- [x] Phase 4: SEO/OG tags, résumé PDF, navigation, and final QA pass
 
 ## Local development
 
@@ -24,6 +24,12 @@ npm run dev
 ```bash
 npm run build
 npm run preview   # preview the production build locally
+```
+
+The résumé PDF is generated with:
+
+```bash
+python scripts/generate-resume-pdf.py
 ```
 
 ## Deploying to GitHub Pages
@@ -54,5 +60,7 @@ git push -u origin main
 - The Projects section references `car-watcher` (live on GitHub) and the CV
   Builder tool — update the CV Builder link once it's deployed somewhere
   public.
-- Placeholder note in Projects section flags where the interactive k6 demo
-  will go (Phase 3).
+- The Contact section includes the generated one-page résumé PDF,
+  `public/anastasiya-georgieva-resume.pdf`, and a copy-to-clipboard email action.
+- The site includes responsive section navigation, Open Graph/Twitter metadata,
+  canonical metadata, and Person structured data for search and sharing.
