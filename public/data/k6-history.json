@@ -839,5 +839,34 @@
         "thresholdsPassed": true
       }
     }
+  },
+  {
+    "timestamp": "2026-09-26T08:29:06.300Z",
+    "tests": {
+      "load": {
+        "p50": 12,
+        "p90": 20,
+        "p95": 20,
+        "errorRate": 0,
+        "rps": 29.8,
+        "thresholdsPassed": true
+      },
+      "stress": {
+        "p50": 12,
+        "p90": 20,
+        "p95": 21,
+        "errorRate": 0,
+        "rps": 163.2,
+        "thresholdsPassed": true
+      },
+      "soak": {
+        "p50": 12,
+        "p90": 20,
+        "p95": 20,
+        "errorRate": 0,
+        "rps": 27,
+        "thresholdsPassed": true
+      }
+    }
   }
 ]
