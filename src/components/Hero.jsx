@@ -142,18 +142,6 @@ function CertificateModal({ open, onClose }) {
           src={`${import.meta.env.BASE_URL}istqb-test-automation-engineer.pdf`}
           className="min-h-[45vh] flex-1 w-full border border-[var(--color-line)] bg-white"
         />
-        <div className="pt-4">
-          <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-slate)]">
-            Software University certificates
-          </h3>
-          <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
-            <li>Programming Basics with C# — [TODO: add credential link]</li>
-            <li>Fundamentals of Programming with C# — [TODO: add credential link]</li>
-            <li>QA Automation — [TODO: add credential link]</li>
-            <li>Agile Fundamentals with Scrum — [TODO: add credential link]</li>
-          </ul>
-          {/* TODO: Add verified credential URLs for the Software University certificates. */}
-        </div>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import StatusLine from './StatusLine'
 import { useState } from 'react'
+import VisitorCounter from './VisitorCounter'
 
 const emailAddress = 'anastassiya.georgieva@gmail.com'
 
@@ -77,6 +78,9 @@ export default function Contact() {
       >
         Download résumé (PDF) →
       </a>
+      <div className="mt-3 font-[var(--font-mono)] text-xs text-[var(--color-slate)]">
+        <VisitorCounter />
+      </div>
       <footer className="mt-24 pt-8 border-t border-[var(--color-line)] font-[var(--font-mono)] text-xs text-[var(--color-slate)]">
         Built with React · Vite · Tailwind · Claude · Sofia, Bulgaria
       </footer>

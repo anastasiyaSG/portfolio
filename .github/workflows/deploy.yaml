@@ -41,6 +41,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
         run: npm run build
 
       - name: Upload Pages artifact

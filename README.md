@@ -32,6 +32,27 @@ The résumé PDF is generated with:
 python scripts/generate-resume-pdf.py
 ```
 
+## Privacy-friendly visitor analytics
+
+The footer can show the portfolio's total view count, while the GoatCounter
+dashboard provides visit trends, referring sites, and approximate visitor
+locations. Analytics are disabled until a GoatCounter site code is configured.
+
+1. Create a site at [GoatCounter](https://www.goatcounter.com/) and note its
+  site code (the subdomain before `.goatcounter.com`).
+2. In GoatCounter site settings, enable **Allow adding visitor counts on your
+  website** to permit the public total counter.
+3. For local development, create `portfolio/.env.local` with
+  `VITE_GOATCOUNTER_CODE=your-site-code` and restart Vite.
+4. For GitHub Pages, add a repository Actions variable named
+  `GOATCOUNTER_CODE` with that same site code. The deployment build will then
+  enable tracking and the public counter.
+
+GoatCounter is privacy-oriented and reports aggregated location/referrer
+analytics rather than identifying individual visitors. Visitors using blockers
+or disabled JavaScript may not be counted. See the
+[GoatCounter visitor counter documentation](https://www.goatcounter.com/help/visitor-counter).
+
 ## Deploying to GitHub Pages
 
 1. Push this repo to GitHub (see steps below if starting fresh).

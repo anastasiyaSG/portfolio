@@ -50,18 +50,12 @@ html = r'''
     .project { margin-top: 5pt; }
     .project-title { font-weight: 700; }
     .project a { color: #2BA88E; text-decoration: none; }
-    .workflow { margin-top: 10pt; }
-    .workflow-intro { margin-bottom: 4pt; }
-    .workflow-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 10mm; }
-    .workflow-step { margin-top: 3pt; }
-    .workflow-step strong { color: #151B24; }
-    .guardrails { columns: 2; column-gap: 10mm; }
     .education-item { display: grid; grid-template-columns: 31mm 1fr; gap: 6mm; margin-top: 5pt; }
     .education-item h3 { font-size: 9.5pt; }
     .education-details { margin-top: 1pt; color: #5C6B7A; }
     .footer { margin-top: 9pt; padding-top: 6pt; border-top: 1.2pt solid #D3D9D6; color: #5C6B7A; font-size: 8pt; }
     @media print {
-      section, .education-item, .workflow-step { break-inside: avoid; }
+      section, .education-item { break-inside: avoid; }
     }
   </style>
 </head>
@@ -86,29 +80,13 @@ html = r'''
       <p class="summary">Quality engineer focused on automation frameworks, risk-based testing, CI/CD quality gates, and early defect prevention across banking platforms, microservices, mobile applications, and agile teams.</p>
     </section>
 
-    <section class="workflow">
-      <h2>AI-Augmented QA Workflow</h2>
-      <p class="workflow-intro">I integrated AI tooling (Claude Code) into the full QA lifecycle. AI accelerates the work; I stay accountable for quality decisions.</p>
-      <div class="workflow-steps">
-        <p class="workflow-step"><strong>Requirements refinement:</strong> AI helps surface gaps, ambiguities, edge cases, and risks. I validate findings against business rules and document verified logic in Confluence.</p>
-        <p class="workflow-step"><strong>Test case design:</strong> I use AI to draft positive, negative, boundary, and risk-based cases, then review and correct them.</p>
-        <p class="workflow-step"><strong>Documentation:</strong> I document test processes, business logic, and artifacts in Confluence, traceable to requirements.</p>
-        <p class="workflow-step"><strong>Automation:</strong> AI-assisted code generation helps expand coverage; I review, refactor, and stabilize the code for flakiness and maintainability.</p>
-        <p class="workflow-step"><strong>Test data:</strong> I generate synthetic data for manual and automated testing; I never use real or personal data.</p>
-        <p class="workflow-step"><strong>Continuous improvement:</strong> Defects, false positives, and AI mistakes inform prompts, templates, and process improvements.</p>
-      </div>
-      <p class="workflow-step"><strong>Responsible use:</strong> I review every AI output, use company-approved tools with GDPR awareness, keep confidential and personal data out of prompts, and verify claims against requirements. AI is an accelerator, not a source of truth.</p>
-      <p class="workflow-step"><strong>Lessons learned:</strong> AI helps most with edge cases, boilerplate automation, and synthetic data. Business-rule interpretation, assertions, and flaky logic need close supervision.</p>
-      <p class="workflow-step"><strong>Day-to-day:</strong> Refining requirements, maintaining reviewed test cases, extending stable UI/API automation, preparing synthetic data, documenting artifacts, and identifying sprint risks and CI/CD quality gates.</p>
-      <p class="workflow-step"><strong>Tools:</strong> Claude Code, Confluence, Python, Playwright, pytest, Selenium, API testing, k6, JMeter, GitHub Actions / CI/CD, synthetic test data.</p>
-    </section>
-
     <section>
       <h2>Experience</h2>
       <article class="job">
         <div class="period">Jan 2023 — Present</div>
         <div><h3>Senior QA Engineer (Automation &amp; Quality Strategy)</h3><p class="company">TBI Bank</p><ul>
           <li>Designed and led a cross-organization test automation framework from scratch, moving delivery toward an automation-first model.</li>
+          <li>Integrated Claude Code across QA—from requirements and edge-case analysis to risk-based test design, traceable documentation, reviewed automation, and synthetic test data—verifying every output against business rules, protecting confidential data, and feeding lessons back into the process.</li>
           <li>Led a QA maturity assessment across 13 agile teams; findings became a recurring practice and informed broader automation adoption.</li>
           <li>Introduced JMeter and k6 performance testing; identified a sustained-load memory leak ahead of Black Friday and enabled mitigation before an incident.</li>
           <li>Built defect leakage analysis, strengthened quality gates, tested banking microservices and mobile apps, and mentored peers.</li>

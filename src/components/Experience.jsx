@@ -11,6 +11,7 @@ const roles = [
     period: 'Jan 2023 — Present',
     bullets: [
       'Designed and led a cross-organization test automation framework from scratch, shifting the org toward automation-first delivery.',
+      'Integrated Claude Code across QA—from requirements and edge-case analysis to risk-based test design, traceable documentation, reviewed automation, and synthetic test data—verifying every output against business rules, protecting confidential data, and feeding lessons back into the process.',
       'Led a QA maturity assessment across 13 agile teams — the executive report was adopted as a recurring practice and became the trigger for the org\u2019s broader move into AI-assisted automation.',
       'Built defect leakage analysis to trace why bugs reached production, not just count them, feeding fixes back into process and standards.',
       'Introduced performance testing (JMeter, then k6) and non-functional quality gates — identified a memory leak under sustained load ahead of Black Friday, giving dev and DevOps teams time to mitigate before it became an incident.',
