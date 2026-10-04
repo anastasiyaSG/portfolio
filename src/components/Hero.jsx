@@ -27,8 +27,9 @@ export default function Hero() {
             QA Engineer / SDET
           </h1>
           <p className="mt-6 font-[var(--font-body)] text-lg md:text-xl text-[var(--color-slate)] max-w-2xl leading-relaxed">
-            Building automation frameworks, strengthening CI/CD quality gates, and
-            identifying risk before it becomes a defect.
+            I combine an engineering background in safety-critical, process-driven
+            fields with modern AI-augmented QA practices, using AI tooling with
+            human oversight across the full test lifecycle.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -116,7 +117,7 @@ function CertificateModal({ open, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="certificate-title"
-        className="flex h-[90vh] w-full max-w-5xl flex-col rounded-lg bg-[var(--color-paper)] p-4 md:p-6"
+        className="flex max-h-[90vh] w-full max-w-5xl flex-col overflow-y-auto rounded-lg bg-[var(--color-paper)] p-4 md:p-6"
       >
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
@@ -139,8 +140,20 @@ function CertificateModal({ open, onClose }) {
         <iframe
           title="ISTQB Test Automation Engineer certificate"
           src={`${import.meta.env.BASE_URL}istqb-test-automation-engineer.pdf`}
-          className="min-h-0 flex-1 w-full border border-[var(--color-line)] bg-white"
+          className="min-h-[45vh] flex-1 w-full border border-[var(--color-line)] bg-white"
         />
+        <div className="pt-4">
+          <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-widest text-[var(--color-slate)]">
+            Software University certificates
+          </h3>
+          <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+            <li>Programming Basics with C# — [TODO: add credential link]</li>
+            <li>Fundamentals of Programming with C# — [TODO: add credential link]</li>
+            <li>QA Automation — [TODO: add credential link]</li>
+            <li>Agile Fundamentals with Scrum — [TODO: add credential link]</li>
+          </ul>
+          {/* TODO: Add verified credential URLs for the Software University certificates. */}
+        </div>
       </div>
     </div>
   )

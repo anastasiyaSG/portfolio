@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 
 const sections = [
   ['about', 'About'],
+  ['ai-workflow', 'AI Workflow'],
   ['experience', 'Experience'],
   ['skills', 'Skills'],
   ['projects', 'Projects'],
+  ['education', 'Education'],
   ['contact', 'Contact'],
 ]
 
