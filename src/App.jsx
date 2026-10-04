@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import About from './components/About'
+import AIWorkflow from './components/AIWorkflow'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
@@ -13,6 +14,7 @@ function App() {
       <Nav />
       <Hero />
       <About />
+      <AIWorkflow />
       <Experience />
       <Skills />
       <Projects />
