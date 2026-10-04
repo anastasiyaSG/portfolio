@@ -21,7 +21,7 @@ html = r'''
       font-size: 9.2pt;
       line-height: 1.3;
     }
-    main { width: 210mm; height: 297mm; padding: 15mm 16mm 12mm; }
+    main { width: 210mm; min-height: 297mm; padding: 15mm 16mm 12mm; }
     h1, h2, h3, p { margin: 0; }
     h1 { font-size: 25pt; letter-spacing: -0.7pt; line-height: 1; }
     h2 {
@@ -50,7 +50,19 @@ html = r'''
     .project { margin-top: 5pt; }
     .project-title { font-weight: 700; }
     .project a { color: #2BA88E; text-decoration: none; }
+    .workflow { margin-top: 10pt; }
+    .workflow-intro { margin-bottom: 4pt; }
+    .workflow-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 10mm; }
+    .workflow-step { margin-top: 3pt; }
+    .workflow-step strong { color: #151B24; }
+    .guardrails { columns: 2; column-gap: 10mm; }
+    .education-item { display: grid; grid-template-columns: 31mm 1fr; gap: 6mm; margin-top: 5pt; }
+    .education-item h3 { font-size: 9.5pt; }
+    .education-details { margin-top: 1pt; color: #5C6B7A; }
     .footer { margin-top: 9pt; padding-top: 6pt; border-top: 1.2pt solid #D3D9D6; color: #5C6B7A; font-size: 8pt; }
+    @media print {
+      section, .education-item, .workflow-step { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
@@ -72,6 +84,23 @@ html = r'''
     <section>
       <h2>Profile</h2>
       <p class="summary">Quality engineer focused on automation frameworks, risk-based testing, CI/CD quality gates, and early defect prevention across banking platforms, microservices, mobile applications, and agile teams.</p>
+    </section>
+
+    <section class="workflow">
+      <h2>AI-Augmented QA Workflow</h2>
+      <p class="workflow-intro">I integrated AI tooling (Claude Code) into the full QA lifecycle. AI accelerates the work; I stay accountable for quality decisions.</p>
+      <div class="workflow-steps">
+        <p class="workflow-step"><strong>Requirements refinement:</strong> AI helps surface gaps, ambiguities, edge cases, and risks. I validate findings against business rules and document verified logic in Confluence.</p>
+        <p class="workflow-step"><strong>Test case design:</strong> I use AI to draft positive, negative, boundary, and risk-based cases, then review and correct them.</p>
+        <p class="workflow-step"><strong>Documentation:</strong> I document test processes, business logic, and artifacts in Confluence, traceable to requirements.</p>
+        <p class="workflow-step"><strong>Automation:</strong> AI-assisted code generation helps expand coverage; I review, refactor, and stabilize the code for flakiness and maintainability.</p>
+        <p class="workflow-step"><strong>Test data:</strong> I generate synthetic data for manual and automated testing; I never use real or personal data.</p>
+        <p class="workflow-step"><strong>Continuous improvement:</strong> Defects, false positives, and AI mistakes inform prompts, templates, and process improvements.</p>
+      </div>
+      <p class="workflow-step"><strong>Responsible use:</strong> I review every AI output, use company-approved tools with GDPR awareness, keep confidential and personal data out of prompts, and verify claims against requirements. AI is an accelerator, not a source of truth.</p>
+      <p class="workflow-step"><strong>Lessons learned:</strong> AI helps most with edge cases, boilerplate automation, and synthetic data. Business-rule interpretation, assertions, and flaky logic need close supervision.</p>
+      <p class="workflow-step"><strong>Day-to-day:</strong> Refining requirements, maintaining reviewed test cases, extending stable UI/API automation, preparing synthetic data, documenting artifacts, and identifying sprint risks and CI/CD quality gates.</p>
+      <p class="workflow-step"><strong>Tools:</strong> Claude Code, Confluence, Python, Playwright, pytest, Selenium, API testing, k6, JMeter, GitHub Actions / CI/CD, synthetic test data.</p>
     </section>
 
     <section>
@@ -115,6 +144,23 @@ html = r'''
         <div class="project"><span class="project-title">car-watcher</span><br>Python scraper with scheduled GitHub Actions alerts for new vehicle listings.<br><a href="https://github.com/anastasiyaSG/car-watcher">github.com/anastasiyaSG/car-watcher</a></div>
         <div class="project"><span class="project-title">Evolved CV Builder</span><br>React and TypeScript CV builder with editable sections and PDF export.<br><a href="https://github.com/anastasiyaSG/evolved_cv_builder">github.com/anastasiyaSG/evolved_cv_builder</a></div>
       </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <article class="education-item">
+        <div class="period">2019 — 2020</div>
+        <div><h3>QA Automation training</h3><p class="company">Software University (SoftUni)</p><p class="education-details">Programming Basics with C#; Fundamentals of Programming with C# (Jan 2020, 6.00/6.00); QA Automation (May 2020, 5.02/6.00); Agile Fundamentals with Scrum (Jan 2022, 6.00/6.00).</p></div>
+      </article>
+      <article class="education-item">
+        <div class="period">2013 — 2015</div>
+        <div><h3>MSc, Logistics Engineering</h3><p class="company">Technical University of Sofia</p><p class="education-details">Grade: A / Excellent. Thesis: “Passenger and Baggage Flows at an Airport Terminal”. Honor award for excellent academic results.</p></div>
+      </article>
+      <article class="education-item">
+        <div class="period">2008 — 2012</div>
+        <div><h3>BSc, Aviation Engineering</h3><p class="company">Technical University of Sofia</p><p class="education-details">Electrical aviation engineering, radar and navigation systems.</p></div>
+      </article>
+      <p class="education-details">Engineering background in safety-critical, process-driven fields, which shaped my risk-based approach to quality.</p>
     </section>
 
     <section>
