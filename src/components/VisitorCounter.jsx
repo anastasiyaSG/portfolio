@@ -9,9 +9,10 @@ export default function VisitorCounter() {
     if (!siteCode) return undefined
 
     let active = true
-    const counterUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json`
+    const portfolioPath = encodeURIComponent('/portfolio')
+    const counterUrl = `https://${siteCode}.goatcounter.com/counter/${portfolioPath}.json`
     const loadCount = () => {
-      fetch(counterUrl)
+      fetch(counterUrl, { cache: 'no-store' })
         .then((response) => {
           if (!response.ok) throw new Error('Could not load visitor count')
           return response.json()
