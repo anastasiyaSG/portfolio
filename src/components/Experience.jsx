@@ -24,7 +24,7 @@ const roles = [
     tone: 'pass',
     title: 'Quality Assurance Specialist',
     org: 'Barcode Systems, Bulgaria',
-    period: 'Dec 2020 — Mar 2022',
+    period: 'Dec 2020 — Dec 2022',
     bullets: [
       'Worked directly with stakeholders to elicit requirements — quality work that started before a single test was written.',
       'Authored epics and user stories, reviewing specs for ERP/BA integration — bridging business analysis and QA.',
