@@ -1,34 +1,5 @@
 [
   {
-    "timestamp": "2026-10-12T10:20:49.342Z",
-    "tests": {
-      "load": {
-        "p50": 38,
-        "p90": 62,
-        "p95": 62,
-        "errorRate": 0,
-        "rps": 28.5,
-        "thresholdsPassed": true
-      },
-      "stress": {
-        "p50": 40,
-        "p90": 61,
-        "p95": 62,
-        "errorRate": 0,
-        "rps": 150.5,
-        "thresholdsPassed": true
-      },
-      "soak": {
-        "p50": 58,
-        "p90": 61,
-        "p95": 62,
-        "errorRate": 0,
-        "rps": 25.8,
-        "thresholdsPassed": true
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-13T10:13:14.272Z",
     "tests": {
       "load": {
@@ -865,6 +836,35 @@
         "p95": 15,
         "errorRate": 0,
         "rps": 27.1,
+        "thresholdsPassed": true
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-12T10:47:41.084Z",
+    "tests": {
+      "load": {
+        "p50": 54,
+        "p90": 71,
+        "p95": 71,
+        "errorRate": 0,
+        "rps": 28.1,
+        "thresholdsPassed": true
+      },
+      "stress": {
+        "p50": 53,
+        "p90": 71,
+        "p95": 71,
+        "errorRate": 0,
+        "rps": 148.6,
+        "thresholdsPassed": true
+      },
+      "soak": {
+        "p50": 54,
+        "p90": 67,
+        "p95": 71,
+        "errorRate": 0,
+        "rps": 25.7,
         "thresholdsPassed": true
       }
     }
